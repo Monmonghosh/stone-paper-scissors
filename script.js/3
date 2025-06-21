@@ -1,0 +1,24 @@
+function play(userChoice) {
+  const choices = ["stone", "paper", "scissors"];
+  const computerChoice = choices[Math.floor(Math.random() * 3)];
+
+  document.getElementById("user-choice").textContent = `You: ${userChoice}`;
+  document.getElementById("computer-choice").textContent = `Computer: ${computerChoice}`;
+
+  const result = getResult(userChoice, computerChoice);
+  document.getElementById("outcome").textContent = `Result: ${result}`;
+}
+
+function getResult(user, computer) {
+  if (user === computer) return "It's a draw!";
+  if (
+    (user === "stone" && computer === "scissors") ||
+    (user === "paper" && computer === "stone
+        ") ||
+    (user === "scissors" && computer === "paper")
+  ) {
+    return "You win!";
+  } else {
+    return "You lose!";
+  }
+}
